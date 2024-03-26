@@ -11,7 +11,9 @@ export default async function Home () {
     redirect('/login')
   }
 
-  const { data: posts } = await supabase.from('posts').select('*')
+  const { data: posts } = await supabase
+    .from('posts')
+    .select('*, users(name, user_name, avatar_url)')
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
