@@ -3,9 +3,11 @@ import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 import { AuthButtonServer } from '@/app/components/auth-button-server'
 import PostsList from '@/app/components/posts-list'
+import { type Database } from '@/app/types/database'
+import { type Post } from '@/app/types/posts'
 
 export default async function Home () {
-  const supabase = createServerComponentClient({ cookies })
+  const supabase = createServerComponentClient<Database>({ cookies })
   const {
     data: { session }
   } = await supabase.auth.getSession()
@@ -22,7 +24,7 @@ export default async function Home () {
     <main className="flex min-h-screen flex-col items-center justify-between">
       <section className="max-w-[800px] mx-auto border-l border-r border-white/20 min-h-screen">
         <AuthButtonServer />
-        <PostsList posts={posts} />
+        <PostsList posts={posts as Post[]} />
       </section>
     </main>
   )

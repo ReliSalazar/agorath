@@ -1,8 +1,9 @@
 'use client'
 
 import PostCard from '@/app/components/post-card'
+import { type Post } from '@/app/types/posts'
 
-export default function PostsList ({ posts }) {
+export default function PostsList ({ posts }: { posts: Post[] | null }) {
   return (
     <>
       {posts?.map((post) => {
