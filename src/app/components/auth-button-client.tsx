@@ -16,7 +16,7 @@ export function AuthButton ({ session }: { session: Session | null }) {
     await supabase.auth.signInWithOAuth({
       provider: 'github',
       options: {
-        redirectTo: 'https://agorath.vercel.app/auth/callback'
+        redirectTo: `${location.origin}/auth/callback`
       }
     })
   }
