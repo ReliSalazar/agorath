@@ -5,6 +5,7 @@ import {
   createClientComponentClient
 } from '@supabase/auth-helpers-nextjs'
 import { useRouter } from 'next/navigation'
+import { Button } from '@nextui-org/button'
 import { GithubIcon } from './icons'
 
 export function AuthButton ({ session }: { session: Session | null }) {
@@ -39,7 +40,7 @@ export function AuthButton ({ session }: { session: Session | null }) {
         </button>
           )
         : (
-        <button onClick={handlesignout}>Sign out</button>
+        <Button onClick={handlesignout}>Sign out</Button>
           )}
     </header>
   )
