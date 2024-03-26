@@ -3,10 +3,10 @@
 import PostCard from '@/app/components/post-card'
 import { type Post } from '@/app/types/posts'
 
-export default function PostsList ({ posts }: { posts: Post[] | null }) {
+export default function PostsList ({ posts }: { posts: Post[] }) {
   return (
     <>
-      {posts?.map((post) => {
+      {posts.map((post) => {
         const { id, content, user } = post
         const {
           name: userFullName,

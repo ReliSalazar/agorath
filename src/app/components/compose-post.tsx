@@ -15,14 +15,14 @@ export function ComposePost ({ avatarUrl }: { avatarUrl: string }) {
         await addPost(formData)
         formRef.current?.reset()
       }}
-      className="flex flex-row gap-x-3 p-3 border-b border-white/20"
+      className="flex flex-row gap-x-3 p-3 border-b border-gray-800"
     >
       <Avatar radius="full" size="md" src={avatarUrl} />
       <div className="flex flex-1 flex-col gap-y-4">
         <textarea
           name="content"
           rows={4}
-          className="w-full text-xl bg-black placeholder-gray-500 p-2"
+          className="w-full text-xl bg-gray-900 placeholder-gray-500 p-2"
           placeholder="What's on your mind?"
         ></textarea>
         <ComposePostButton />

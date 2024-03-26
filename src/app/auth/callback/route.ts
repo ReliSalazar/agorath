@@ -1,6 +1,8 @@
 import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs'
 import { cookies } from 'next/headers'
-import { type NextRequest, NextResponse } from 'next/server'
+import { NextResponse } from 'next/server'
+
+import type { NextRequest } from 'next/server'
 
 export const dynamic = 'force-dynamic'
 
@@ -9,12 +11,9 @@ export async function GET (request: NextRequest) {
   const code = requestUrl.searchParams.get('code')
 
   if (code !== null) {
-    const cookieStore = cookies()
-    const supabase = createRouteHandlerClient({ cookies: () => cookieStore })
+    const supabase = createRouteHandlerClient({ cookies })
     await supabase.auth.exchangeCodeForSession(code)
   }
-
-  // URL to redirect to after sign in process completes
 
   return NextResponse.redirect(requestUrl.origin)
 }
