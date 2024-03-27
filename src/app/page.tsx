@@ -7,6 +7,8 @@ import { type Post } from '@/app/types/posts'
 import { ComposePost } from '@/app/components/compose-post'
 import AuthButtonServer from '@/app/components/auth-button-server'
 
+export const dynamic = 'force-dynamic'
+
 export default async function Home () {
   const supabase = createServerComponentClient<Database>({ cookies })
   const {
